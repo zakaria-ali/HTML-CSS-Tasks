@@ -1,0 +1,459 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --clockBody: #439af8;
+    --clockExternalParts: white;
+    --clockInternalParts: #ffa500;
+    --outerBorder: black;
+    --innerBrder: #003c89;
+    --Body: #4e96cc;
+    --Eye: white;
+    --Pupil: #211e34;
+    --Mouth: black;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #00203FFF;
+    color: #ADEFD1FF;
+    font-family: Arial, sans-serif;
+}
+
+marquee {
+    font-size: 5rem;
+}
+
+.header {
+    font-size: 2rem;
+    margin-top: 5rem;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+hr {
+    margin: 1rem;
+}
+
+::-webkit-scrollbar {
+    width: 20px;
+}
+
+::-webkit-scrollbar-track {
+    background: #00203FFF;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ADEFD1FF;
+}
+
+/* Task 1 */
+.task1 {
+    margin: 2rem 0;
+    background-color: rgb(245, 214, 37);
+    height: 200px;
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.task1 p {
+    color: white;
+    font-weight: bold;
+    position: relative;
+}
+
+.task1 p:hover {
+    color: blueviolet;
+}
+
+.black {
+    content: "";
+    width: 30%;
+    height: 3px;
+    right: -11px;
+    top: -3px;
+    position: absolute;
+    background-color: black;
+    transition: width 1s;
+}
+
+.black1 {
+    content: "";
+    width: 3px;
+    height: 90%;
+    right: -11px;
+    top: -3px;
+    position: absolute;
+    background-color: black;
+    transition: height 1s;
+
+}
+
+.task1 p:hover .black {
+    width: 160%;
+}
+
+.task1 p:hover .black1 {
+    height: 330%;
+}
+
+.white {
+    content: "";
+    width: 30%;
+    height: 3px;
+    left: -12px;
+    top: 37px;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    transition: width 1s;
+}
+
+.white1 {
+    content: "";
+    width: 3px;
+    height: 90%;
+    left: -15px;
+    bottom: -3px;
+    background-color: white;
+    position: absolute;
+    z-index: 1;
+    transition: height 1s;
+}
+
+.task1 p:hover .white {
+    width: 161%;
+}
+
+.task1 p:hover .white1 {
+    height: 329%;
+}
+
+/* Task 2 */
+.box {
+    position: relative;
+    display: block;
+    width: 600px;
+    height: 420px;
+    z-index: 1;
+}
+
+.body {
+    position: absolute;
+    background-color: var(--clockBody);
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    left: 25%;
+    top: 15%;
+    z-index: 3;
+}
+
+.background {
+    position: absolute;
+    background-color: var(--clockExternalParts);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    left: 17%;
+    top: 17%;
+}
+
+.outer-border {
+    position: absolute;
+    border: solid 5px var(--outerBorder);
+    border-radius: 50%;
+    width: 208px;
+    height: 208px;
+    left: 47px;
+    top: 47px;
+    z-index: 3;
+}
+
+.inner-border {
+    position: absolute;
+    border: solid 6px var(--innerBrder);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    left: 0;
+    top: 0;
+}
+
+._12,
+._3,
+._6,
+._9 {
+    background-color: var(--clockInternalParts);
+    border-radius: 50%;
+    width: 22px;
+    height: 22px;
+    box-shadow: 0px 9px 14px 0px black;
+}
+
+._12 {
+    position: absolute;
+    left: 90px;
+    top: 10px;
+}
+
+._3 {
+    position: absolute;
+    left: 165px;
+    top: 85px;
+}
+
+._6 {
+    position: absolute;
+    left: 90px;
+    bottom: 10px;
+}
+
+._9 {
+    position: absolute;
+    right: 165px;
+    top: 85px;
+}
+
+.center {
+    position: absolute;
+    left: 75px;
+    top: 90px;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    border: solid 3px var(--clockInternalParts);
+    z-index: 5;
+}
+
+.hour-hand {
+    position: absolute;
+    left: 131px;
+    top: 95px;
+    border-radius: 4px 0px 10px 10px;
+    width: 10px;
+    height: 50px;
+    transform: rotate(-72deg);
+    background-color: var(--clockInternalParts);
+    box-shadow: 0px 4px 14px 0px black;
+}
+
+.minute-hand {
+    position: absolute;
+    left: 63px;
+    top: 40px;
+    border-radius: 4px 0px 10px 10px;
+    width: 10px;
+    height: 60px;
+    transform: rotate(145deg);
+    background-color: var(--clockInternalParts);
+    box-shadow: 0px 1px 14px 0px black;
+}
+
+.second-hand::after {
+    content: "";
+    position: absolute;
+    left: 69px;
+    top: 117px;
+    width: 2.5px;
+    height: 33px;
+    transform: rotate(45deg);
+    background-color: var(--clockInternalParts);
+    box-shadow: 1px 1px 6px 0px black
+}
+
+.left-btn-leg {
+    position: absolute;
+    left: 191px;
+    top: 75px;
+    width: 30px;
+    height: 20px;
+    transform: rotate(142deg);
+    background-color: var(--clockExternalParts);
+    z-index: 2;
+}
+
+.right-btn-leg {
+    position: absolute;
+    right: 191px;
+    top: 75px;
+    width: 30px;
+    height: 20px;
+    transform: rotate(-142deg);
+    background-color: var(--clockExternalParts);
+    z-index: 2;
+}
+
+.right-btn {
+    position: absolute;
+    right: 134px;
+    top: 25px;
+    width: 93px;
+    height: 60px;
+    border-radius: 0px 0px 53px 53px;
+    transform: rotate(-142deg);
+    background-color: var(--clockBody);
+    z-index: 3;
+}
+
+.left-btn {
+    position: absolute;
+    left: 134px;
+    top: 25px;
+    width: 93px;
+    height: 60px;
+    border-radius: 0px 0px 53px 53px;
+    transform: rotate(142deg);
+    background-color: var(--clockBody);
+    z-index: 3;
+}
+
+.left-leg {
+    position: absolute;
+    left: 198px;
+    bottom: 29px;
+    border-radius: 13px 13px 0px 0px;
+    width: 10px;
+    height: 60px;
+    transform: rotate(-142deg);
+    background-color: var(--clockExternalParts);
+}
+
+.right-leg {
+    position: absolute;
+    right: 198px;
+    bottom: 29px;
+    border-radius: 13px 13px 0px 0px;
+    width: 10px;
+    height: 60px;
+    transform: rotate(142deg);
+    background-color: var(--clockExternalParts);
+}
+
+/* Task 3 */
+.face {
+    position: relative;
+    margin-left: 6rem;
+    width: 400px;
+    height: 400px;
+}
+
+@keyframes bodyPosition {
+    from {
+        top: 20%;
+    }
+
+    to {
+        top: 22%;
+    }
+}
+
+.component {
+    position: absolute;
+    background-color: var(--Body);
+    border-radius: 50%;
+    width: 250px;
+    height: 250px;
+    left: 10%;
+    top: 20%;
+    animation-name: bodyPosition;
+    animation-timing-function: linear;
+    animation-duration: 0.3s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+@keyframes eyesPosition {
+    from {
+        top: 20%;
+    }
+
+    to {
+        top: 30%;
+    }
+}
+
+.left-eye {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    background-color: var(--Eye);
+    border-radius: 50%;
+    top: 20%;
+    left: 7%;
+    animation-name: eyesPosition;
+    animation-timing-function: linear;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.left-pupil {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    background-color: var(--Pupil);
+    border-radius: 50%;
+    top: 12%;
+    left: 27%;
+}
+
+.right-eye {
+    width: 70px;
+    height: 70px;
+    position: absolute;
+    background-color: var(--Eye);
+    border-radius: 50%;
+    top: 20%;
+    left: 43%;
+    animation-name: eyesPosition;
+    animation-timing-function: linear;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
+
+.right-pupil {
+    width: 45px;
+    height: 45px;
+    position: absolute;
+    background-color: var(--Pupil);
+    border-radius: 50%;
+    top: 12%;
+    right: 27%;
+}
+
+@keyframes mouthPosition {
+    from {
+        top: 45%;
+    }
+
+    to {
+        top: 55%;
+    }
+}
+
+.mouth {
+    width: 62px;
+    height: 21px;
+    position: absolute;
+    top: 45%;
+    left: 27%;
+    border-style: solid;
+    border-width: 6px;
+    border-color: transparent transparent var(--Mouth) transparent;
+    border-radius: 0px 0px 16px 16px;
+    animation-name: mouthPosition;
+    animation-timing-function: linear;
+    animation-duration: 0.4s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+}
